@@ -28,6 +28,7 @@
                                 <th>Date P20</th>
                                 <th>Date P21</th>
                                 <th>Date P21A</th>
+                                <th>Created At</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -46,16 +47,19 @@
                                     <td>{{$data->tanggal_P20 ? \Carbon\Carbon::parse($data->tanggal_P20)->format('d-m-Y') : '-'}}</td>
                                     <td>{{$data->tanggal_P21 ? \Carbon\Carbon::parse($data->tanggal_P21)->format('d-m-Y') : '-'}}</td>
                                     <td>{{$data->tanggal_P21A ? \Carbon\Carbon::parse($data->tanggal_P21A)->format('d-m-Y') : '-'}}</td>
+                                    <td>{{ \Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</td>
                                     <td><button disabled="disabled" class="btn @if($data->status == 'pra-penuntutan') btn-warning @else btn-info @endif">{{$data->status}}</button></td>
                                     <td>
-                                        <a href="{{route('editDefendant', $data->id)}}" class="btn btn-success" title="edit"><i class="far fa-edit"></i></a>
-                                        <form action="{{ route('deleteDefendant',$data->id) }}" method="POST" style="display: none;" id="delete-form-{{ $data->id }}">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                        <a href="#" class="btn btn-danger" title="delete" onclick="event.preventDefault();document.getElementById('delete-form-{{ $data->id }}').submit();">
-                                            <i class="far fa-trash-alt" data-id="{{ $data->id }}"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a href="{{route('editDefendant', $data->id)}}" class="btn btn-success" title="edit"><i class="far fa-edit"></i></a>
+                                            <form action="{{ route('deleteDefendant',$data->id) }}" method="POST" style="display: none;" id="delete-form-{{ $data->id }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                            <a href="#" class="btn btn-danger " title="delete" onclick="event.preventDefault();document.getElementById('delete-form-{{ $data->id }}').submit();">
+                                                <i class="fa fa-trash-alt" data-id="{{ $data->id }}"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

@@ -38,22 +38,23 @@
                                 <input type="date" class="form-control" id="Input4" name="tanggal_SPDP">
                                 <label for="Input7" class="font-weight-bold">Date P18</label>
                                 <input type="date" class="form-control" id="Input7" name="tanggal_P18">
-                                <label for="Input10" class="font-weight-bold">Date P21A</label>
-                                <input type="date" class="form-control" id="Input10" name="tanggal_P21A">
+                                <label for="Input9" class="font-weight-bold">Date P21</label>
+                                <input type="date" class="form-control" id="Input9" name="tanggal_P21">
+                                
                             </div>
                             <div class="col-lg-4">
                                 <label for="Input5" class="font-weight-bold">Date P17</label>
                                 <input type="date" class="form-control" id="Input5" name="tanggal_P17">
                                 <label for="Input12" class="font-weight-bold">Date P19</label>
                                 <input type="date" class="form-control" id="Input12" name="tanggal_P19">
-                                <label for="Input8" class="font-weight-bold">Date P20</label>
-                                <input type="date" class="form-control" id="Input8" name="tanggal_P20">
+                                <label for="Input10" class="font-weight-bold">Date P21A</label>
+                                <input type="date" class="form-control" id="Input10" name="tanggal_P21A">
                             </div>
                             <div class="col-lg-4">
                                 <label for="Input6" class="font-weight-bold">Date Stage 1</label>
                                 <input type="date" class="form-control" id="Input6" name="tanggal_tahap_1">
-                                <label for="Input9" class="font-weight-bold">Date P21</label>
-                                <input type="date" class="form-control" id="Input9" name="tanggal_P21">
+                                <label for="Input8" class="font-weight-bold">Date P20</label>
+                                <input type="date" class="form-control" id="Input8" name="tanggal_P20">
                             </div>
                         </div>
                         <div class="form-group">
@@ -76,7 +77,7 @@
         <script>
             function handleCancel() {
                 if (confirm("Are you sure you want to cancel ?")) {
-                    window.location.href = "{{route('crimeType')}}";
+                    window.location.href = "{{route('defendants')}}";
                 }
 
             }

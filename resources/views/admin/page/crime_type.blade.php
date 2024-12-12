@@ -21,25 +21,21 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             @foreach ($crimeTypes as $crimeType )
                                 <tr>
                                     <td>{{$crimeType->name}}</td>
                                     <td>
-                                        <a href="{{route('editCrimeType', $crimeType->id)}}" class="btn btn-success" title="edit"><i class="far fa-edit"></i></a>
-                                        <form action="{{ route('deleteCrimeType',$crimeType->id) }}" method="POST" style="display: none;" id="delete-form-{{ $crimeType->id }}">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                        <a href="#" class="btn btn-danger" title="delete" onclick="event.preventDefault();document.getElementById('delete-form-{{ $crimeType->id }}').submit();">
-                                            <i class="far fa-trash-alt" data-id="{{ $crimeType->id }}"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a href="{{route('editCrimeType', $crimeType->id)}}" class="btn btn-success" title="edit"><i class="far fa-edit"></i></a>
+                                            <form action="{{ route('deleteCrimeType',$crimeType->id) }}" method="POST" style="display: none;" id="delete-form-{{ $crimeType->id }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                            <a href="#" class="btn btn-danger" title="delete" onclick="event.preventDefault();document.getElementById('delete-form-{{ $crimeType->id }}').submit();">
+                                                <i class="far fa-trash-alt" data-id="{{ $crimeType->id }}"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
