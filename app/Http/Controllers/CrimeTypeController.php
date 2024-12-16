@@ -49,6 +49,13 @@ class CrimeTypeController extends Controller
 
     public function destroy(CrimeType $crimeType)
     {
+
+        // Cek apakah crime_type digunakan di tabel defendants
+        if ($crimeType->defendants()->exists()) {
+            // Redirect kembali dengan pesan alert
+            return redirect()->back()->with('error', 'Data crime type '.$crimeType->name.' are being used on table defendants and cannot be removed.');
+        }
+
         $crimeType->delete();
         return redirect()->route('crimeType');
     }

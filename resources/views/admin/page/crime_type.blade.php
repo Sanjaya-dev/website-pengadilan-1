@@ -5,7 +5,12 @@
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-    
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between">
@@ -54,6 +59,17 @@
         <script src="dashboard-template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
         <!-- Page level custom scripts -->
         <script src="dashboard-template/js/demo/datatables-demo.js"></script>
+        <script>
+            // Hilangkan alert setelah 5 detik (5000 ms)
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                    setTimeout(() => alert.remove(), 150); // Remove element after fade
+                });
+            }, 5000);
+        </script>
     @endpush
 
 @endsection
